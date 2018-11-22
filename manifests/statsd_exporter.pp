@@ -126,7 +126,7 @@ class prometheus::statsd_exporter (
     notify  => $notify_service,
   }
 
-  $options = "-statsd.mapping-config=\'${prometheus::statsd_exporter::mapping_config_path}\' ${prometheus::statsd_exporter::extra_options}"
+  $options = "--statsd.mapping-config=\'${prometheus::statsd_exporter::mapping_config_path}\' ${prometheus::statsd_exporter::extra_options}"
 
   prometheus::daemon { 'statsd_exporter':
     install_method     => $install_method,
