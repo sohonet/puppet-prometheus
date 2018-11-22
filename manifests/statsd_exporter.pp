@@ -68,7 +68,7 @@
 #
 #  [*statsd_maps*]
 #  The hiera array for mappings:
-#    - map: 'test.dispatcher.*.*.*'
+#    - match: 'test.dispatcher.*.*.*'
 #      name: 'dispatcher_events_total'
 #      labels:
 #        processor: '$2'
