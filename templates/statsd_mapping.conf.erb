@@ -1,2 +1,2 @@
 mappings:
-  <%= @statsd_maps.to_yaml(options = {:header => false}) %>
+  <%= @statsd_maps.to_yaml().gsub("---\n", '') %>
