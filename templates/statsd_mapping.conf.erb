@@ -1,2 +1,2 @@
 mappings:
-  <%= @real_statsd_maps.to_yaml() %>
+  <%= @statsd_maps.to_yaml(options = {:use_header => false}) %>

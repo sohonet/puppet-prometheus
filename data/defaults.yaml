@@ -228,7 +228,7 @@ prometheus::statsd_exporter::download_url_base: 'https://github.com/prometheus/s
 prometheus::statsd_exporter::extra_groups: []
 prometheus::statsd_exporter::group: 'statsd-exporter'
 prometheus::statsd_exporter::mapping_config_path: '/etc/statsd_mappings.conf'
-prometheus::statsd_exporter::maps:
+prometheus::statsd_exporter::statsd_maps:
   - 'match': 'test.dispatcher.*.*.*'
     'name': 'dispatcher_events_total'
     'labels':
