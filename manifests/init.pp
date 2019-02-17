@@ -130,6 +130,11 @@
 #  via a reverse proxy). Used for generating relative and absolute links back to Alertmanager itself.
 #  If omitted, relevant URL components will be derived automatically.
 #
+#  [*max_open_files*]
+#  The maximum number of file descriptors for the prometheus server.
+#  Defaults to `undef`, but set to a large integer to override your default OS limit.
+#  Currently only implemented for systemd based service.
+#
 # Actions:
 #
 # Requires: see Modulefile
@@ -180,6 +185,7 @@ class prometheus (
   Hash $config_defaults = {},
   String $os            = downcase($facts['kernel']),
   Optional[Variant[Stdlib::HTTPUrl, Stdlib::Unixpath, String[1]]] $external_url = undef,
+  Optional[Integer] $max_open_files = undef,
 ) {
 
   case $arch {

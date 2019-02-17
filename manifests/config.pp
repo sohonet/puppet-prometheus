@@ -4,6 +4,8 @@ class prometheus::config {
 
   assert_private()
 
+  $max_open_files = $prometheus::max_open_files
+
   if $prometheus::server::init_style {
     if( versioncmp($prometheus::server::version, '2.0.0') < 0 ){
       # helper variable indicating prometheus version, so we can use on this information in the template

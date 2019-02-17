@@ -126,6 +126,24 @@ describe 'prometheus' do
                 'content' => File.read(fixtures('files', "prometheus#{prom_major}.systemd"))
               )
             }
+            describe 'max_open_files' do
+              context 'by default' do
+                it {
+                  content = catalogue.resource('systemd::unit_file', 'prometheus.service').send(:parameters)[:content]
+                  expect(content).not_to include('LimitNOFILE')
+                }
+              end
+              context 'when set to 1000000' do
+                let(:params) do
+                  parameters.merge('max_open_files' => 1_000_000)
+                end
+
+                it {
+                  content = catalogue.resource('systemd::unit_file', 'prometheus.service').send(:parameters)[:content]
+                  expect(content).to include('LimitNOFILE=1000000')
+                }
+              end
+            end
           elsif ['ubuntu-14.04-x86_64'].include?(os)
             # init_style = 'upstart'
 
