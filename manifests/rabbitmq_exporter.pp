@@ -117,7 +117,7 @@ class prometheus::rabbitmq_exporter (
   String $bin_dir                     = $prometheus::bin_dir,
   Optional[String] $download_url      = undef,
   String $extra_options               = '',
-  String $init_style                  = $prometheus::init_style,
+  Prometheus::Initstyle $init_style   = $prometheus::init_style,
   String $install_method              = $prometheus::install_method,
   Boolean $manage_group               = true,
   Boolean $manage_service             = true,

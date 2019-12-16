@@ -99,7 +99,7 @@ class prometheus::statsd_exporter (
   Boolean $service_enable                 = true,
   String $service_ensure                  = 'running',
   String $os                              = $prometheus::os,
-  String $init_style                      = $prometheus::init_style,
+  Prometheus::Initstyle $init_style       = $prometheus::init_style,
   String $install_method                  = $prometheus::install_method,
   Boolean $manage_group                   = true,
   Boolean $manage_service                 = true,
